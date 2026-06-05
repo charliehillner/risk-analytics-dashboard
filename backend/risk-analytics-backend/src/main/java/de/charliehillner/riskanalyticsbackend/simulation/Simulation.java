@@ -1,5 +1,6 @@
 package de.charliehillner.riskanalyticsbackend.simulation;
 
+import de.charliehillner.riskanalyticsbackend.simulation.util.SimulationStatisticsSummary;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -37,6 +38,7 @@ public class Simulation {
     @Column(name = "num_runs")
     private int numRuns;
 
+    // Statistics
     @Column(name = "mean_final_value")
     private BigDecimal meanFinalValue;
     @Column(name = "median_final_value")
@@ -48,4 +50,32 @@ public class Simulation {
 
     @Column(name = "loss_probability")
     private double lossProbability;
+
+    public SimulationInitialValues getInitialValues() {
+        return new SimulationInitialValues(
+                initialCapital,
+                monthlyContribution,
+                expectedReturn,
+                volatility,
+                years,
+                numRuns
+        );
+    }
+
+    public void setInitialValues(SimulationInitialValues initialValues) {
+        setInitialCapital(initialValues.initialCapital());
+        setMonthlyContribution(initialValues.monthlyContribution());
+        setExpectedReturn(initialValues.expectedReturn());
+        setVolatility(initialValues.volatility());
+        setYears(initialValues.years());
+        setNumRuns(initialValues.numRuns());
+    }
+
+    public void setStatistics(SimulationStatisticsSummary summary) {
+        setMeanFinalValue(new BigDecimal(summary.mean()));
+        setMedianFinalValue(new BigDecimal(summary.median()));
+        setPercentile5(new BigDecimal(summary.p5()));
+        setPercentile95(new BigDecimal(summary.p95()));
+        setLossProbability(summary.lossProbability());
+    }
 }
