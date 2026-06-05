@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: risk-analytics-postgres
+    environment:
+      POSTGRES_DB: risk_analytics
+      POSTGRES_USER: risk
+      POSTGRES_PASSWORD: risk
+    ports:
+      - "5432:5432"
+    volumes:
+      - risk_analytics_data:/var/lib/postgresql/data
+
+volumes:
+  risk_analytics_data:

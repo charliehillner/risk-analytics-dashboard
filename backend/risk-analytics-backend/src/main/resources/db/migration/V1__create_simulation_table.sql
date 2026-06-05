@@ -1,0 +1,4 @@
+CREATE TABLE simulation (
+    id BIGSERIAL PRIMARY KEY,
+    created_at TIMESTAMP NOT NULL
+)
