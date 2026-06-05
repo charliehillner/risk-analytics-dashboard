@@ -51,17 +51,6 @@ public class Simulation {
     @Column(name = "loss_probability")
     private double lossProbability;
 
-    public SimulationInitialValues getInitialValues() {
-        return new SimulationInitialValues(
-                initialCapital,
-                monthlyContribution,
-                expectedReturn,
-                volatility,
-                years,
-                numRuns
-        );
-    }
-
     public void setInitialValues(SimulationInitialValues initialValues) {
         setInitialCapital(initialValues.initialCapital());
         setMonthlyContribution(initialValues.monthlyContribution());

@@ -55,7 +55,12 @@ public class SimulationService {
 
         return new SimulationResponse(
                 savedSimulation.getId(),
-                "Simulation saved"
+                "Simulation saved",
+                savedSimulation.getMeanFinalValue().doubleValue(),
+                savedSimulation.getMedianFinalValue().doubleValue(),
+                savedSimulation.getPercentile5().doubleValue(),
+                savedSimulation.getPercentile95().doubleValue(),
+                savedSimulation.getLossProbability()
         );
     }
 
