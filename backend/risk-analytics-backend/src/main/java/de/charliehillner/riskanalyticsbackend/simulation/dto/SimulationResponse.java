@@ -1,7 +1,5 @@
 package de.charliehillner.riskanalyticsbackend.simulation.dto;
 
-import java.math.BigDecimal;
-
 public record SimulationResponse(
         Long id,
         String message,
@@ -9,6 +7,7 @@ public record SimulationResponse(
         double medianFinalValue,
         double percentile5,
         double percentile95,
-        double lossProbability
+        double lossProbability,
+        double[] finalValues
 ) {
 }

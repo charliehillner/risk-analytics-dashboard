@@ -6,7 +6,6 @@ import de.charliehillner.riskanalyticsbackend.simulation.util.SimulationStatisti
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
-import java.util.Arrays;
 import java.util.Random;
 
 @Service
@@ -20,9 +19,6 @@ public class SimulationService {
 
     public SimulationResponse createSimulation(SimulationRequest request) {
         double[] finalValues = simulateFinalValues(request);
-
-        System.out.println("Max: " + Arrays.stream(finalValues).max());
-        System.out.println("Min: " + Arrays.stream(finalValues).min());
 
         Simulation simulation = new Simulation();
 
@@ -60,7 +56,8 @@ public class SimulationService {
                 savedSimulation.getMedianFinalValue().doubleValue(),
                 savedSimulation.getPercentile5().doubleValue(),
                 savedSimulation.getPercentile95().doubleValue(),
-                savedSimulation.getLossProbability()
+                savedSimulation.getLossProbability(),
+                finalValues
         );
     }
 

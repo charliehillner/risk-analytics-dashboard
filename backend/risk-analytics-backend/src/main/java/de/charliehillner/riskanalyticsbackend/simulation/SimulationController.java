@@ -3,6 +3,7 @@ package de.charliehillner.riskanalyticsbackend.simulation;
 import de.charliehillner.riskanalyticsbackend.simulation.dto.*;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/api/simulations")
 public class SimulationController {
