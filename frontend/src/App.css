@@ -118,6 +118,18 @@ button {
   font-size: 1.25rem;
 }
 
+.metric-low {
+  border-left: 4px solid #2e7d32;
+}
+
+.metric-medium {
+  border-left: 4px solid #f59e0b;
+}
+
+.metric-high {
+  border-left: 4px solid #d32f2f;
+}
+
 @media (max-width: 900px) {
   .app-shell {
     grid-template-columns: 1fr;

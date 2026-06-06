@@ -6,10 +6,11 @@ import { formatCurrency, formatPercentage } from "./utils/formatters";
 import "./App.css";
 import { Metric } from "./components/Metric";
 import { chartColors } from "./themes/colors";
+import { getRiskLevel } from "./types/risk-level";
 
 function App() {
   const [result, setResult] = useState<SimulationResponse | null>(null);
-
+  
   return (
     <main className="app-shell">
       <aside className="sidebar">
@@ -54,6 +55,7 @@ function App() {
                 <Metric
                   label="Loss Probability"
                   value={formatPercentage(result.lossProbability)}
+                  riskLevel={getRiskLevel(result.lossProbability)}
                 />
               </div>
 
