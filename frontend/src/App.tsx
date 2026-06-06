@@ -3,6 +3,7 @@ import type { SimulationResponse } from "./types/simulation";
 import { SimulationForm } from "./components/SimulationForm";
 import "./App.css";
 import { HistogramChart } from "./components/HistogramChart";
+import { formatCurrency, formatPercentage } from "./utils/formatters";
 
 function App() {
   const [result, setResult] = useState<SimulationResponse | null>(null);
@@ -32,13 +33,13 @@ function App() {
             </p>
           ) : (
             <div className="metrics-grid">
-              <Metric label="Mean Final Value" value={result.meanFinalValue.toFixed(2)} />
-              <Metric label="Median Final Value" value={result.medianFinalValue.toFixed(2)} />
-              <Metric label="5% Quantile" value={result.percentile5.toFixed(2)} />
-              <Metric label="95% Quantile" value={result.percentile95.toFixed(2)} />
+              <Metric label="Mean Final Value" value={formatCurrency(result.meanFinalValue)} />
+              <Metric label="Median Final Value" value={formatCurrency(result.medianFinalValue)} />
+              <Metric label="5% Quantile" value={formatCurrency(result.percentile5)} />
+              <Metric label="95% Quantile" value={formatCurrency(result.percentile95)} />
               <Metric
                 label="Loss Probability"
-                value={`${(result.lossProbability * 100).toFixed(2)}%`}
+                value={formatPercentage(result.lossProbability)}
               />
             </div>
           )}

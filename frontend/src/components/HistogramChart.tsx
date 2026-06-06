@@ -7,6 +7,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import { formatCurrency, formatShortCurrency } from "../utils/formatters";
 
 type HistogramBin = {
   range: string;
@@ -49,7 +50,7 @@ function buildHistogram(values: number[], bins: number): HistogramBin[] {
   if (min === max) {
     return [
       {
-        range: formatCurrency(min),
+        range: formatCurrency(min, 0),
         count: values.length,
       },
     ];
@@ -77,24 +78,4 @@ function buildHistogram(values: number[], bins: number): HistogramBin[] {
   }
 
   return histogram;
-}
-
-function formatShortCurrency(value: number): string {
-  if (value >= 1_000_000) {
-    return `${(value / 1_000_000).toFixed(1)}M`;
-  }
-
-  if (value >= 1_000) {
-    return `${Math.round(value / 1_000)}k`;
-  }
-
-  return Math.round(value).toString();
-}
-
-function formatCurrency(value: number): string {
-  return new Intl.NumberFormat("de-DE", {
-    style: "currency",
-    currency: "EUR",
-    maximumFractionDigits: 0,
-  }).format(value);
 }
