@@ -6,16 +6,16 @@ export function formatCurrency(value: number, maxFractionDigits: number = 2): st
   }).format(value);
 }
 
-export function formatPercentage(value: number): string {
+export function formatPercentage(value: number, maxFractionDigits: number = 2): string {
   return new Intl.NumberFormat("de-DE", {
     style: "percent",
-    maximumFractionDigits: 2,
+    maximumFractionDigits: maxFractionDigits,
   }).format(value);
 }
 
-export function formatNumber(value: number): string {
+export function formatNumber(value: number, maxFractionDigits: number = 2): string {
   return new Intl.NumberFormat("de-DE", {
-    maximumFractionDigits: 2,
+    maximumFractionDigits: maxFractionDigits,
   }).format(value);
 }
 

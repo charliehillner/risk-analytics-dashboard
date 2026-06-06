@@ -7,6 +7,7 @@ import "./App.css";
 import { Metric } from "./components/Metric";
 import { chartColors } from "./themes/colors";
 import { getRiskLevel } from "./types/risk-level";
+import { SimulationHistory } from "./components/SimulationHistory";
 
 function App() {
   const [result, setResult] = useState<SimulationResponse | null>(null);
@@ -68,6 +69,8 @@ function App() {
                   bins={15}
                 />
               )}
+
+              <SimulationHistory />
             </>
           )}
         </div>

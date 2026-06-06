@@ -1,11 +1,13 @@
 package de.charliehillner.riskanalyticsbackend.simulation;
 
+import de.charliehillner.riskanalyticsbackend.simulation.dto.SimulationHistoryItem;
 import de.charliehillner.riskanalyticsbackend.simulation.dto.SimulationRequest;
 import de.charliehillner.riskanalyticsbackend.simulation.dto.SimulationResponse;
 import de.charliehillner.riskanalyticsbackend.simulation.util.SimulationStatistics;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
+import java.util.List;
 import java.util.Random;
 
 @Service
@@ -93,5 +95,26 @@ public class SimulationService {
             finalValues[run] = value;
         }
         return finalValues;
+    }
+
+    public List<SimulationHistoryItem> getSimulationHistory() {
+        return simulationRepository.findAllByOrderByCreatedAtDesc()
+                .stream()
+                .map(simulation -> new SimulationHistoryItem(
+                        simulation.getId(),
+                        simulation.getCreatedAt(),
+                        simulation.getInitialCapital(),
+                        simulation.getMonthlyContribution(),
+                        simulation.getExpectedReturn(),
+                        simulation.getVolatility(),
+                        simulation.getYears(),
+                        simulation.getNumRuns(),
+                        simulation.getMeanFinalValue(),
+                        simulation.getMedianFinalValue(),
+                        simulation.getPercentile5(),
+                        simulation.getPercentile95(),
+                        simulation.getLossProbability()
+                ))
+                .toList();
     }
 }
