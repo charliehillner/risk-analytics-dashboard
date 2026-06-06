@@ -100,6 +100,28 @@ button {
   cursor: pointer;
 }
 
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.tab {
+  border: 1px solid #dde3ea;
+  border-radius: 999px;
+  padding: 10px 16px;
+  background: white;
+  color: #667085;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.tab.active {
+  background: #4f6fdd;
+  color: white;
+  border-color: #4f6fdd;
+}
+
 .metric {
   border: 1px solid #e1e6ee;
   border-radius: 14px;
@@ -130,6 +152,46 @@ button {
   border-left: 4px solid #d32f2f;
 }
 
+.history h2 {
+  margin-top: 0;
+}
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.history-table th,
+.history-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #e1e6ee;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.history-table th:first-child,
+.history-table td:first-child {
+  text-align: left;
+}
+
+.history-table th {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #667085;
+  background: #f8fafc;
+}
+
+.history-table tbody tr:hover {
+  background: #f8fafc;
+}
+
 @media (max-width: 900px) {
   .app-shell {
     grid-template-columns: 1fr;
@@ -150,3 +212,4 @@ button {
     grid-template-columns: 1fr;
   }
 }
+
