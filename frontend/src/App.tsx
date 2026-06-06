@@ -79,6 +79,17 @@ function App() {
                     value={formatPercentage(result.lossProbability)}
                     riskLevel={getRiskLevel(result.lossProbability)}
                   />
+                  <Metric
+                    label="VaR 95%"
+                    value={formatCurrency(result.valueAtRisk95)}
+                    riskLevel="medium"
+                  />
+
+                  <Metric
+                    label="CVaR 95%"
+                    value={formatCurrency(result.conditionalValueAtRisk95)}
+                    riskLevel="high"
+                  />
                 </div>
 
                 {result.finalValues && (

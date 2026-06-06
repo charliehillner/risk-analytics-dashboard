@@ -51,6 +51,12 @@ public class Simulation {
     @Column(name = "loss_probability")
     private double lossProbability;
 
+    @Column(name = "value_at_risk_95")
+    private BigDecimal valueAtRisk95;
+
+    @Column(name = "conditional_value_at_risk_95")
+    private BigDecimal conditionalValueAtRisk95;
+
     public void setInitialValues(SimulationInitialValues initialValues) {
         setInitialCapital(initialValues.initialCapital());
         setMonthlyContribution(initialValues.monthlyContribution());
@@ -66,5 +72,7 @@ public class Simulation {
         setPercentile5(new BigDecimal(summary.p5()));
         setPercentile95(new BigDecimal(summary.p95()));
         setLossProbability(summary.lossProbability());
+        setValueAtRisk95(new BigDecimal(summary.valueAtRisk95()));
+        setConditionalValueAtRisk95(new BigDecimal(summary.conditionalValueAtRisk95()));
     }
 }

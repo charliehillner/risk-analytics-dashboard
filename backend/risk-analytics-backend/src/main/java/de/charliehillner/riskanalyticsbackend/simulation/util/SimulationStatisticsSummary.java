@@ -5,6 +5,8 @@ public record SimulationStatisticsSummary(
         double median,
         double p5,
         double p95,
-        double lossProbability
+        double lossProbability,
+        double valueAtRisk95,
+        double conditionalValueAtRisk95
 ) {
 }

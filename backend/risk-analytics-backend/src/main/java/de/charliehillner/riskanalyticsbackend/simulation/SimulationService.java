@@ -59,7 +59,9 @@ public class SimulationService {
                 savedSimulation.getPercentile5().doubleValue(),
                 savedSimulation.getPercentile95().doubleValue(),
                 savedSimulation.getLossProbability(),
-                finalValues
+                finalValues,
+                savedSimulation.getValueAtRisk95().doubleValue(),
+                savedSimulation.getConditionalValueAtRisk95().doubleValue()
         );
     }
 
@@ -113,7 +115,9 @@ public class SimulationService {
                         simulation.getMedianFinalValue(),
                         simulation.getPercentile5(),
                         simulation.getPercentile95(),
-                        simulation.getLossProbability()
+                        simulation.getLossProbability(),
+                        simulation.getValueAtRisk95(),
+                        simulation.getConditionalValueAtRisk95()
                 ))
                 .toList();
     }

@@ -16,5 +16,7 @@ public record SimulationHistoryItem(
         BigDecimal medianFinalValue,
         BigDecimal percentile5,
         BigDecimal percentile95,
-        double lossProbability
+        double lossProbability,
+        BigDecimal valueAtRisk95,
+        BigDecimal conditionalValueAtRisk95
 ) {}

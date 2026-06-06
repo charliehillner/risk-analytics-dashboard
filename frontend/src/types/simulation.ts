@@ -16,6 +16,8 @@ export type SimulationResponse = {
   percentile95: number;
   lossProbability: number;
   finalValues: number[];
+  valueAtRisk95: number;
+  conditionalValueAtRisk95: number;
 };
 
 export type SimulationHistoryItem = {
@@ -32,4 +34,6 @@ export type SimulationHistoryItem = {
   percentile5: number;
   percentile95: number;
   lossProbability: number;
+  valueAtRisk95: number;
+  conditionalValueAtRisk95: number;
 };

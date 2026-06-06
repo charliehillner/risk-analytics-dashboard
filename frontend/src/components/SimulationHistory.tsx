@@ -30,6 +30,8 @@ export function SimulationHistory() {
                 <th>5% Quantile</th>
                 <th>95% Quantile</th>
                 <th>Loss Prob.</th>
+                <th>VaR</th>
+                <th>CVaR</th>
               </tr>
             </thead>
 
@@ -45,6 +47,8 @@ export function SimulationHistory() {
                   <td>{formatCurrency(item.percentile5)}</td>
                   <td>{formatCurrency(item.percentile95)}</td>
                   <td>{formatPercentage(item.lossProbability)}</td>
+                  <td>{formatCurrency(item.valueAtRisk95)}</td>
+                  <td>{formatCurrency(item.conditionalValueAtRisk95)}</td>
                 </tr>
               ))}
             </tbody>

@@ -8,6 +8,8 @@ public record SimulationResponse(
         double percentile5,
         double percentile95,
         double lossProbability,
-        double[] finalValues
+        double[] finalValues,
+        double valueAtRisk95,
+        double conditionalValueAtRisk95
 ) {
 }
