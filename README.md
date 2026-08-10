@@ -2,6 +2,23 @@
 
 A full-stack application for Monte Carlo based portfolio risk analysis.
 
+## Screenshots
+
+### Monte Carlo Risk Analysis
+
+The dashboard visualizes the distribution of simulated portfolio outcomes,
+including the median, downside and upside quantiles, and risk metrics such
+as loss probability, Value at Risk (VaR), and Conditional Value at Risk (CVaR).
+
+![Monte Carlo Risk Analysis](docs/images/Risk-Current-Simulation-Output.png)
+
+### Simulation History
+
+Previous simulation runs are persisted in PostgreSQL and can be reviewed
+through the history view.
+
+![Simulation History](docs/images/Risk-Simulation-History.png)
+
 ## Goal
 
 The goal of this project is to combine:
